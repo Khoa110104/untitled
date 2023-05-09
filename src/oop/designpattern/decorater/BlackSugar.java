@@ -12,6 +12,6 @@ public class BlackSugar extends MilkTeaDecorator {
 
     @Override
     public double cost() {
-        return milkTea.cost() + 15;
+        return milkTea.cost() ;
     }
 }
