@@ -1,0 +1,16 @@
+Using Bubble Sort Algorithm:
+Before sorting: [52 7 13 81 90 8 69]
+After sorting: [7 8 13 52 69 81 90]
+Number of swap: 8
+
+Using Selection Sort Algorithm:
+Before sorting: [52 7 13 81 90 8 69]
+After sorting: [7 8 13 52 69 81 90]
+Number of swap: 8
+
+Using Insertion Sort Algorithm:
+Before sorting: [52 7 13 81 90 8 69]
+After sorting: [7 8 13 52 69 81 90]
+Number of swap: 14
+
+Process finished with exit code 0

@@ -1,0 +1,39 @@
+============Print Polynomial============
+AP1: IPolynomial[coefficients=[0.8, 0.2, 0.7, 0.5, 0.0, 0.6, 0.7]]
+AP2: IPolynomial[coefficients=[0.6, 0.7, 0.8, 1.0]]
+
+LP1: IPolynomial[coefficients=[0.8, 0.2, 0.7, 0.5, 0.0, 0.6, 0.7]]
+LP2: IPolynomial[coefficients=[0.6, 0.7, 0.8, 1.0]]
+
+============Plus Polynomial============
+AP1 + AP2: IPolynomial[coefficients=[1.4, 0.8999999999999999, 1.5, 1.5, 0.0, 0.6, 0.7]]
+LP1 + LP2: IPolynomial[coefficients=[1.4, 0.8999999999999999, 1.5, 1.5, 0.0, 0.6, 0.7]]
+
+============Minus Polynomial============
+AP1 - AP2: IPolynomial[coefficients=[0.20000000000000007, -0.49999999999999994, -0.10000000000000009, -0.5, 0.0, 0.6, 0.7]]
+LP1 - LP2: IPolynomial[coefficients=[0.20000000000000007, -0.49999999999999994, -0.10000000000000009, -0.5, 0.0, 0.6, 0.7]]
+
+============Times Polynomial============
+AP1 * AP2: IPolynomial[coefficients=[0.48, 0.6799999999999999, 1.2000000000000002, 1.75, 1.1099999999999999, 1.46, 1.3399999999999999, 0.97, 1.16, 0.7]]
+LP1 * LP2: IPolynomial[coefficients=[0.48, 0.6799999999999999, 1.2000000000000002, 1.75, 1.1099999999999999, 1.46, 1.3399999999999999, 0.97, 1.16, 0.7]]
+
+============Derivative============
+AP1 derivative: IPolynomial[coefficients=[0.2, 1.4, 1.5, 0.0, 3.0, 4.199999999999999]]
+AP2 derivative: IPolynomial[coefficients=[0.7, 1.6, 3.0]]
+LP1 derivative: IPolynomial[coefficients=[0.2, 1.4, 1.5, 0.0, 3.0, 4.199999999999999]]
+LP2 derivative: IPolynomial[coefficients=[0.7, 1.6, 3.0]]
+
+============Integral============
+AP1 integral: IPolynomial[coefficients=[1.0, 0.8, 0.1, 0.2333333333333333, 0.125, 0.0, 0.09999999999999999, 0.09999999999999999]]
+AP2 integral: IPolynomial[coefficients=[1.0, 0.6, 0.35, 0.26666666666666666, 0.25]]
+LP1 integral: IPolynomial[coefficients=[1.0, 0.8, 0.1, 0.2333333333333333, 0.125, 0.0, 0.09999999999999999, 0.09999999999999999]]
+LP2 integral: IPolynomial[coefficients=[1.0, 0.6, 0.35, 0.26666666666666666, 0.25]]
+
+============Evaluate============
+AP1 evaluate: 458.4094207999998
+AP2 evaluate: 30.783999999999992
+LP1 evaluate: 458.4094207999998
+LP2 evaluate: 30.783999999999992
+
+
+Process finished with exit code 0
