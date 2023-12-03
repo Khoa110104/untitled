@@ -2,11 +2,11 @@ package oop.lab.lab6.ex1_1;
 
 public class TestCylinder {
     public static void main(String[] args) {
-        //Test constructor and toString()
+        //BasicStatistics constructor and toString()
         Cylinder cylinder1 = new Cylinder();
         System.out.println(cylinder1);
 
-        //Test get()
+        //BasicStatistics get()
         System.out.println("Cylinder:"
                 + " radius=" + cylinder1.getRadius()
                 + " height=" + cylinder1.getHeight()
@@ -27,7 +27,7 @@ public class TestCylinder {
                 + " base area=" + cylinder3.getArea()
                 + " volume=" + cylinder3.getVolume());
 
-        //Test set()
+        //BasicStatistics set()
         System.out.println(cylinder3);
         cylinder3.setRadius(5.2);
         cylinder3.setHeight(3);

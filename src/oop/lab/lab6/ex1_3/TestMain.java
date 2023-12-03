@@ -2,11 +2,11 @@ package oop.lab.lab6.ex1_3;
 
 public class TestMain {
     public static void main(String[] args) {
-        //Test constructor and toString()
+        //BasicStatistics constructor and toString()
         Point2D point2D = new Point2D(4, 5);
         System.out.println(point2D);
 
-        //Test getter ang setter
+        //BasicStatistics getter ang setter
         point2D.setX(2);
         point2D.setY(3);
         System.out.println("x = " + point2D.getX());
@@ -16,11 +16,11 @@ public class TestMain {
         System.out.println(point2D1.getXY()[0]);
         System.out.println(point2D1.getXY()[1]);
 
-        //Test constructor and toString()
+        //BasicStatistics constructor and toString()
         Point3D point3D = new Point3D();
         System.out.println(point3D);
 
-        //Test getter and setter
+        //BasicStatistics getter and setter
         point3D.setXYZ(7, 8, 9);
         System.out.println("x = " + point3D.getX());
         System.out.println("y = " + point3D.getY());

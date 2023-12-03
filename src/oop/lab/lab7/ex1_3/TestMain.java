@@ -2,11 +2,11 @@ package oop.lab.lab7.ex1_3;
 
 public class TestMain {
     public static void main(String[] args) {
-        //Test constructor and toString()
+        //BasicStatistics constructor and toString()
         Movable point1 = new MovablePoint(1, 4, 7, 4);
         System.out.println(point1);
 
-        //Test moveUp()-moveDown()-moveLeft()-moveRight
+        //BasicStatistics moveUp()-moveDown()-moveLeft()-moveRight
         System.out.println("before moving up, y=" + ((MovablePoint) point1).y);
         point1.moveUp();
         System.out.println("after, y=" + ((MovablePoint) point1).y);

@@ -23,7 +23,7 @@ public class MyArrayList extends MyAbstractList {
     @Override
     public int size() {
         /* TODO */
-        return size;
+        return this.size;
     }
 
     /**
@@ -51,7 +51,7 @@ public class MyArrayList extends MyAbstractList {
     public void set(Object payload, int index) {
         /* TODO */
         if (index < 0 || index >= size) {
-            System.out.println("Can't set element in index");
+            System.out.println("Can't set element in index!!");
             return;
         }
         data[index] = payload;
@@ -66,7 +66,7 @@ public class MyArrayList extends MyAbstractList {
     public void remove(int index) {
         /* TODO */
         if (index < 0 || index >= size) {
-            System.out.println("Can't");
+            System.out.println("Can't remove!!!");
             return;
         }
         for (int i = index; i < size; i++) {
@@ -87,7 +87,8 @@ public class MyArrayList extends MyAbstractList {
         if (size == data.length) {
             enlarge();
         }
-        data[size++] = payload;
+        data[size] = payload;
+        size++;
     }
 
     /**
@@ -101,7 +102,7 @@ public class MyArrayList extends MyAbstractList {
     public void insert(Object payload, int index) {
         /* TODO */
         if (index < 0 || index >= size) {
-            System.out.println("Can't");
+            System.out.println("Can't insert!!!");
             return;
         }
         if (size == data.length) {

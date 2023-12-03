@@ -2,14 +2,14 @@ package oop.lab.lab5.ex2_1;
 
 public class TestBook {
     public static void main(String[] args) {
-        //Test constructor and toString()
+        //BasicStatistics constructor and toString()
         Author ahTeck = new Author("Tan Ah Teck", "ahteck@nowhere.com", 'm');
         System.out.println(ahTeck);
 
         Book dummyBook = new Book("Java for dummy", ahTeck, 19.95, 99);
         System.out.println(dummyBook);
 
-        //Test Getter and Setter
+        //BasicStatistics Getter and Setter
         dummyBook.setPrice(29.95);
         dummyBook.setQty(28);
         System.out.println("name is: " + dummyBook.getName());

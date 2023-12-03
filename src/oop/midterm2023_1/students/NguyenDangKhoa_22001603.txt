@@ -1,0 +1,108 @@
+=================BasicStatistics ArrayList=================
+		*** Sort by fullname increase ***
+Student{name='Anh', lastname='Vu', average=4.0}
+Student{name='Dang', lastname='Le', average=5.0}
+Student{name='Dung', lastname='Nguyen', average=7.5}
+Student{name='Hieu', lastname='Vu', average=2.0}
+Student{name='Khoa', lastname='Nguyen', average=7.0}
+Student{name='Khoa', lastname='Vu', average=10.0}
+Student{name='Khue', lastname='Nguyen', average=10.0}
+Student{name='Nam', lastname='Truong', average=7.0}
+Student{name='Nam', lastname='Vu', average=2.0}
+Student{name='Phuong', lastname='Nguyen', average=7.0}
+Student{name='Tuan', lastname='Pham', average=9.0}
+
+		*** Sort by fullname reduce ***
+Student{name='Tuan', lastname='Pham', average=9.0}
+Student{name='Phuong', lastname='Nguyen', average=7.0}
+Student{name='Nam', lastname='Vu', average=2.0}
+Student{name='Nam', lastname='Truong', average=7.0}
+Student{name='Khue', lastname='Nguyen', average=10.0}
+Student{name='Khoa', lastname='Vu', average=10.0}
+Student{name='Khoa', lastname='Nguyen', average=7.0}
+Student{name='Hieu', lastname='Vu', average=2.0}
+Student{name='Dung', lastname='Nguyen', average=7.5}
+Student{name='Dang', lastname='Le', average=5.0}
+Student{name='Anh', lastname='Vu', average=4.0}
+
+		*** Sort by average increase ***
+Student{name='Nam', lastname='Vu', average=2.0}
+Student{name='Hieu', lastname='Vu', average=2.0}
+Student{name='Anh', lastname='Vu', average=4.0}
+Student{name='Dang', lastname='Le', average=5.0}
+Student{name='Phuong', lastname='Nguyen', average=7.0}
+Student{name='Nam', lastname='Truong', average=7.0}
+Student{name='Khoa', lastname='Nguyen', average=7.0}
+Student{name='Dung', lastname='Nguyen', average=7.5}
+Student{name='Tuan', lastname='Pham', average=9.0}
+Student{name='Khue', lastname='Nguyen', average=10.0}
+Student{name='Khoa', lastname='Vu', average=10.0}
+
+		*** Sort by average reduce ***
+Student{name='Khoa', lastname='Vu', average=10.0}
+Student{name='Khue', lastname='Nguyen', average=10.0}
+Student{name='Tuan', lastname='Pham', average=9.0}
+Student{name='Dung', lastname='Nguyen', average=7.5}
+Student{name='Nam', lastname='Truong', average=7.0}
+Student{name='Khoa', lastname='Nguyen', average=7.0}
+Student{name='Phuong', lastname='Nguyen', average=7.0}
+Student{name='Dang', lastname='Le', average=5.0}
+Student{name='Anh', lastname='Vu', average=4.0}
+Student{name='Nam', lastname='Vu', average=2.0}
+Student{name='Hieu', lastname='Vu', average=2.0}
+
+=================BasicStatistics LinkedList=================
+		*** Sort by fullname increase ***
+Student{name='Anh', lastname='Vu', average=4.0}
+Student{name='Dang', lastname='Le', average=5.0}
+Student{name='Dung', lastname='Nguyen', average=7.5}
+Student{name='Hieu', lastname='Vu', average=2.0}
+Student{name='Khoa', lastname='Nguyen', average=7.0}
+Student{name='Khoa', lastname='Vu', average=10.0}
+Student{name='Khue', lastname='Nguyen', average=10.0}
+Student{name='Nam', lastname='Truong', average=7.0}
+Student{name='Nam', lastname='Vu', average=2.0}
+Student{name='Phuong', lastname='Nguyen', average=7.0}
+Student{name='Tuan', lastname='Pham', average=9.0}
+
+		*** Sort by fullname reduce ***
+Student{name='Tuan', lastname='Pham', average=9.0}
+Student{name='Phuong', lastname='Nguyen', average=7.0}
+Student{name='Nam', lastname='Vu', average=2.0}
+Student{name='Nam', lastname='Truong', average=7.0}
+Student{name='Khue', lastname='Nguyen', average=10.0}
+Student{name='Khoa', lastname='Vu', average=10.0}
+Student{name='Khoa', lastname='Nguyen', average=7.0}
+Student{name='Hieu', lastname='Vu', average=2.0}
+Student{name='Dung', lastname='Nguyen', average=7.5}
+Student{name='Dang', lastname='Le', average=5.0}
+Student{name='Anh', lastname='Vu', average=4.0}
+
+		*** Sort by average increase ***
+Student{name='Nam', lastname='Vu', average=2.0}
+Student{name='Hieu', lastname='Vu', average=2.0}
+Student{name='Anh', lastname='Vu', average=4.0}
+Student{name='Dang', lastname='Le', average=5.0}
+Student{name='Phuong', lastname='Nguyen', average=7.0}
+Student{name='Nam', lastname='Truong', average=7.0}
+Student{name='Khoa', lastname='Nguyen', average=7.0}
+Student{name='Dung', lastname='Nguyen', average=7.5}
+Student{name='Tuan', lastname='Pham', average=9.0}
+Student{name='Khue', lastname='Nguyen', average=10.0}
+Student{name='Khoa', lastname='Vu', average=10.0}
+
+		*** Sort by average reduce ***
+Student{name='Khoa', lastname='Vu', average=10.0}
+Student{name='Khue', lastname='Nguyen', average=10.0}
+Student{name='Tuan', lastname='Pham', average=9.0}
+Student{name='Dung', lastname='Nguyen', average=7.5}
+Student{name='Nam', lastname='Truong', average=7.0}
+Student{name='Khoa', lastname='Nguyen', average=7.0}
+Student{name='Phuong', lastname='Nguyen', average=7.0}
+Student{name='Dang', lastname='Le', average=5.0}
+Student{name='Anh', lastname='Vu', average=4.0}
+Student{name='Nam', lastname='Vu', average=2.0}
+Student{name='Hieu', lastname='Vu', average=2.0}
+
+=================End=================
+

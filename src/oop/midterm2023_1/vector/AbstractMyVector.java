@@ -26,8 +26,8 @@ public abstract class AbstractMyVector implements MyVector {
     @Override
     public boolean equals(MyVector another) {
         /* TODO */
-        if (this.size() == another.size()) {
-            for (int i = 0; i < this.size(); i++) {
+        if (size() == another.size()) {
+            for (int i = 0; i < size(); i++) {
                 if (this.coordinate(i) == another.coordinate(i)) {
                     return true;
                 }

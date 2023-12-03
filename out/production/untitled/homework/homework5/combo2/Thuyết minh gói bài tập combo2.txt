@@ -1,0 +1,65 @@
+Nguyễn Đăng Khoa - 22001603
+************************************THUYẾT MINH VỀ BÀI LÀM COMBO2************************************
+
+--------------------------------Bài 2--------------------------------
+a,b)Các phương thức duyệt cây:
+-Input: Một cây chứa giá trí
+-Output: Duyệt cây theo 3 cách(PreOrder;PostOrder;InOrder)
+-Cách giải quyết sử dụng đệ quy để duyệt cây con trái và cây con phải.
+Còn vị trí gốc nếu là: preOrder thì duyệt trước khi đệ quy con trái và phải
+                       inOrder thì duyệt trước sau khi đệ quy con trái và trươc khi đệ quy con phải
+                       postOrder thì duyệt sau khi đệ quy con trái và phải.
+c)Tính toán giá trị một biểu thức được biểu diễn dưới dạng cây
+-Input:Một cây biểu thức
+-Output:Kết quả của biểu thức
+-Cách giải quyết:
+    + Với giá trị các nút là dạng chuỗi nên ta cần kiểm tra có phải toán tử không với hàm checkOperator() (nếu đầu vào
+    là(+,-,*,/) thì là toán tử và trả về true). Kiểm tra có phải toán hạng không với hàm checkNumber() (ta chuyển chuỗi
+    thành số thực nếu có thể chuyển thì trả về true còn nếu xảy ra lỗi không thể chuyển thì trả và false sử dụng
+    cùng try - catch)
+    + Mỗi cây thì được tạo từ nhiều cây con và khi tính toán ta tính từ lá lên gốc nên cần hàm simpleCalculation() để
+    tính toán những biểu thức nhỏ với đầu vào là 2 toán hạng 1 toán tử (Sử dụng switch-case)
+    + Tiếp theo là hàm tính toán với tham số đầu vào là 1 nút. Kiếm tra nếu nút đó là toán tử và con trái phải của nó
+    tồn tại -> kiểm tra xem xon trái phải có phải số không với hàm checkNumber() .Nếu đúng thì đưa chúng về dạng số
+    và sử dụng hàm simpleCalculation() với 3 tham số là nút cha là toán tử , các nút con là toán hạng. Sau khi
+    tính toán ta thu được kết quả và dạng số thực. Chuyển kết quả thành dạng chuỗi để gán vào giá trị của nút cha. Để
+    các nút con về null.
+    Đệ quy với cây trái và cây phải.
+    + Hàm calculateExpressions() sẽ trả về kết quả cuối cùng với điều kiện là nút gốc ở dạng số thực. Ta sẽ sử dụng
+    vòng lặp while với hàm checkNumber() với nút gốc
+
+------------------------------------------Bài 3------------------------------------------
+-Input: Biểu thức trung tố đã được tách thành các tokens
+Ví dụ input cho biểu thức (6/3 + 2) * (7 - 4) là:
+String [] tokens = {"(","6", "/", "3","+","2",")", "*", "(", "7", "-", "4",")"}
+-Output: Cây nhị phân biểu diễn biểu thức sử dụng cấu trúc liên kết
+-Cách giải quyết: Chuyển từ dạng trung tố sang dạng hậu tố rồi xây dựng cây
+    + Thuật toán chuyển từ dạng trung tố sang dạng hậu tố
+      Đọc từng token trong biểu thức infix từ trái qua phải, với mỗi token ta thực hiện các bước sau:
+      - Nếu là toán hạng: cho ra output.
+      - Nếu là dấu mở ngoặc “(“: cho vào stack.
+      - Nếu là dấu đóng ngoặc “)”: lấy các toán tử trong stack ra và cho vào output cho đến khi gặp dấu mở ngoặc
+      “(“. Dấu mở ngoặc cũng phải được đưa ra khỏi stack.
+      - Nếu là toán tử:
+      • Chừng nào ở đỉnh stack là toán tử và toán tử đó có độ ưu tiên lớn hơn hoặc bằng toán tử hiện tại thì
+      lấy toán tử đó ra khỏi stack và cho ra output.
+      • Đưa toán tử hiện tại vào stack.
+      Sau khi duyệt hết biểu thức infix, nếu trong stack còn phần tử thì lấy các token trong đó ra và cho lần lượt vào
+      output.
+    + Xây dựng cây nhị phân từ dạng hậu tố:
+      Lặp qua từng token trong chuỗi hậu tố
+      - Tạo một đối tượng BinaryTreeNode nhãn của node là token này
+      - Nếu là toán hạng: Push node vào stack
+      - Nếu là toán tử:
+      • Pop một toán hạng ra khỏi stack và đặt làm RightChild của node.
+      • Pop toán hạng kế tiếp ra khỏi stack và đặt làm LeftChild của node.
+      • Push node vào stack.
+      Sau khi vòng lặp kết thúc, phần tử cuối cùng còn lại trong stack là node gốc của cây biểu thức.
+
+    =>Dùng một số hàm kiểm tra toán tử( isOperator() ), toán hạng( isOperand() ) và hàm trả về sự ưu tiên của toán tử
+    (operatorOrder()) trả về số càng lớn thì độ ưu tiên càng cao.
+    Dùng hàm inOrderToPostOrder() sử dụng thuật toán chuyển trung tố sang hậu tố ở trên. Output là 1 list sau khi kết
+    thúc chuyển list sang aray.Sau khi sử dụng hàm này sẽ thu về mảng tokens theo dạng hậu tố.
+    Cuối cùng là hàm toExpressionTree() với input đề bài gọi hàm inOrderToPostOrder() để chuyển về dạng hậu tố và sử
+    dụng thuật toán xây dựng cây nhị phân ở trên .
+    Chương trình còn có hàm in ra định dạng cây theo chiều ngang.

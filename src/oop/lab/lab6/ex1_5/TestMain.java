@@ -2,7 +2,7 @@ package oop.lab.lab6.ex1_5;
 
 public class TestMain {
     public static void main(String[] args) {
-        //Test constructor and toString()
+        //BasicStatistics constructor and toString()
         Animal animal1 = new Animal("Dog");
         System.out.println(animal1);
 

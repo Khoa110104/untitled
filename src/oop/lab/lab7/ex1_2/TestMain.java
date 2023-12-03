@@ -2,7 +2,7 @@ package oop.lab.lab7.ex1_2;
 
 public class TestMain {
     public static void main(String[] args) {
-        //Test constructor and toString() and getter
+        //BasicStatistics constructor and toString() and getter
         GeometricObject shape1 = new Circle(2.2);
         System.out.println(shape1);
         System.out.println("shape1's area is: " + ((Circle) shape1).getArea());

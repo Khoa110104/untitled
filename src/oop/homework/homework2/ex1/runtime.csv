@@ -1,0 +1,32 @@
+---------------Average run time 20 times(miliseconds)---------------
+Array Size, BubbleSort, SelectionSort, InsertionSort, Mergesort, QuickSort
+100, 0.12674500000000002, 0.07722000000000001, 0.08346499999999998, 0.04159500000000001, 0.04837999999999999
+1000, 0.755, 0.4119149999999999, 0.4847299999999999, 0.09588499999999998, 0.060170000000000015
+5000, 17.077669999999998, 4.933305000000002, 5.308054999999999, 0.443335, 0.30911500000000003
+7000, 35.006035, 8.819950000000002, 9.634555, 0.6579849999999999, 0.4152349999999999
+10000, 79.81571, 17.808434999999996, 19.831465, 0.824645, 0.61658
+25000, 607.8666800000001, 109.40910499999998, 123.09552999999998, 2.1610899999999993, 1.6048950000000002
+50000, 2609.006175, 433.642965, 493.83659000000006, 4.331065000000001, 3.37742
+75000, 6004.326445000001, 975.9474200000001, 1115.978615, 6.2973300000000005, 5.271185000000001
+100000, 10791.602410000001, 1726.37664, 1976.6375650000002, 8.521690000000001, 7.050650000000002
+
+Nhận xét:
+1.Bubble Sort:
+  -Bubble Sort có hiệu suất kém nhất trong tất cả các trường hợp. Thời gian thực hiện tăng nhanh khi kích thước mảng tăng lên.
+  -Không thích hợp cho các mảng lớn với số lượng phần tử lớn.
+2.Selection Sort:
+  -Selection Sort cũng có hiệu suất tương đối kém và tăng nhanh theo kích thước mảng đầu vào.
+  -Không thích hợp cho các mảng lớn.
+3.InsertionSort
+  -Insertion Sort có hiệu suất tương đối tốt hơn so với Bubble và Selection Sort, nhưng vẫn không hiệu quả cho các mảng lớn.
+  -Thời gian thực hiện tăng chậm hơn khi kích thước mảng tăng lên so với Bubble và Selection Sort.
+4.Merge Sort:
+  -Merge Sort cho thấy hiệu suất ổn định và thời gian thực hiện không tăng quá nhanh khi kích thước mảng tăng.
+  -Lựa chọn tốt cho các mảng có kích thước lớn.
+5.Quick Sort:
+  -Quick Sort có hiệu suất tương đối tốt và thời gian thực hiện không tăng nhanh khi kích thước mảng tăng.
+  -Có thể là một lựa chọn tốt cho các mảng có kích thước lớn.
+
+===>Với mảng dưới 1000 phần tử việc lựa chọn thuật toán sắp xếp không quá quan trọng vì thời gian thực thi không chệnh
+lệch nhiều. Với mảng 5000 đến 10000 phần tử không nên sử dụng BubbleSort và SelectionSort.Với mảng trên 10000 phần tử
+thì nên lựa chọn MergeSort và QuickSort.

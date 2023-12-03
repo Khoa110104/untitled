@@ -2,7 +2,7 @@ package oop.lab.lab7.ex1_6;
 
 public class TestMain {
     public static void main(String[] args) {
-        //Test constructor and toString()
+        //BasicStatistics constructor and toString()
         Animal cat = new Cat("dd");
         System.out.println(cat);
 
@@ -12,7 +12,7 @@ public class TestMain {
         Animal bigDog = new BigDog("haha");
         System.out.println(bigDog);
 
-        //Test greets()
+        //BasicStatistics greets()
         cat.greets();
         dog.greets();
         bigDog.greets();

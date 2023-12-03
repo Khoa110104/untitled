@@ -1,13 +1,13 @@
 package oop.midterm2023_1.vector;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Random;
 
 public class BasicStatistics {
-    private MyVector[] vectors;
 
-    public BasicStatistics(MyVector[] vectors) {
-        this.vectors = vectors;
-    }
+    private MyVector[] vectors;
 
     public static void main(String[] args) {
         /*
@@ -15,7 +15,7 @@ public class BasicStatistics {
 
          Thực hiện các yêu cầu sau.
 
-         I. Test chức năng vector
+         I. BasicStatistics chức năng vector
            - Viết các hàm testArrayVector để test các chứ năng của array vector, như thêm vào tọa độ, xóa bớt số trục tọa độ,
              sửa giá trị tọa độ, cộng các vector, nhân vector với giá trị vô hướng, nhân vô hướng 2 vector, ...
            - Viết các hàm testListVector để test các chứ năng của list vector, như thêm vào tọa độ, xóa bớt số trục tọa độ,
@@ -32,110 +32,131 @@ public class BasicStatistics {
          III. Lưu các kết quả chạy chương trình vào file text có tên <Ten_MaSinhVien_Vector>.txt
               (ví dụ NguyenVanA_123456_Vector.txt) và nộp cùng source code.
          */
+        System.out.println("===================TestArrayVector===================");
         testArrayVector();
+        System.out.println("===================TestListVector===================");
         testListVector();
+        System.out.println("===================TestDoSimpleStatic===================");
         doSimpleStatic();
     }
+
 
     public static void testArrayVector() {
         /* TODO */
         MyArrayVector myArrayVector1 = new MyArrayVector();
         myArrayVector1.insert(1);
         myArrayVector1.insert(9);
-        myArrayVector1.insert(6);
+        myArrayVector1.insert(1, 1);
+        myArrayVector1.insert(3, 2);
+        myArrayVector1.insert(5, 1);
+        myArrayVector1.insert(8);
         myArrayVector1.insert(3);
-        myArrayVector1.set(5,1);
+        myArrayVector1.insert(6);
+        myArrayVector1.insert(9);
+        myArrayVector1.insert(3);
+        myArrayVector1.insert(3);
+        myArrayVector1.set(1, 1);
         myArrayVector1.remove(0);
-        myArrayVector1.insert(2,1);
-        myArrayVector1.add(2);
-        myArrayVector1.minus(1);
-        System.out.println(myArrayVector1.coordinate(2));
-        System.out.println(Arrays.toString(myArrayVector1.coordinates()));
+        myArrayVector1.insert(2, 1);
+        System.out.println("Vector 1:\n" + myArrayVector1);
+        System.out.println("Add the coordinate values with 2:\n" + myArrayVector1.add(2));
+        System.out.println("Subtract the coordinate values with 1:\n" + myArrayVector1.minus(1));
+        System.out.println("The values of vector1 are taken to the power of 2 :\n" + myArrayVector1.pow(2));
+        System.out.println("The coordinate values of vector 1 are multiplied by 3:\n" + myArrayVector1.scale(3));
+        System.out.println("Standard of vector1: " + myArrayVector1.norm());
 
         MyArrayVector myArrayVector2 = new MyArrayVector();
         myArrayVector2.insert(1);
-        myArrayVector2.insert(9);
-        myArrayVector2.insert(6);
         myArrayVector2.insert(3);
-        myArrayVector2.set(5,1);
-        myArrayVector2.remove(0);
-        myArrayVector2.insert(2,1);
-        myArrayVector2.add(2);
-        myArrayVector2.minus(1);
-        System.out.println(myArrayVector2.coordinate(2));
-        System.out.println(Arrays.toString(myArrayVector2.coordinates()));
+        myArrayVector2.insert(2, 1);
+        myArrayVector2.insert(4);
+        myArrayVector2.insert(5, 2);
+        myArrayVector2.insert(6);
+        myArrayVector2.insert(7);
+        myArrayVector2.insert(7);
+        myArrayVector2.insert(10);
+        myArrayVector2.insert(3, 1);
+        myArrayVector2.insert(9, 0);
+        myArrayVector2.insert(8, 4);
+        myArrayVector2.insert(11);
+        System.out.println("Vector 2:\n" + myArrayVector2);
 
-        System.out.println(myArrayVector1.pow(2));
+
         System.out.println("add: " + myArrayVector1.add(myArrayVector2));
         System.out.println("minus: " + myArrayVector1.minus(myArrayVector2));
         System.out.println("dot:" + myArrayVector1.dot(myArrayVector2));
-
+        double[] data = {9,1};
+        System.out.println("The new vector with bounds is extracted from the current vector:\n"+myArrayVector2.extract(data));
     }
 
     public static void testListVector() {
         /* TODO */
         MyListVector myListVector1 = new MyListVector();
         myListVector1.insert(1);
-        myListVector1.insert(3);
-        myListVector1.insert(5,1);
-        myListVector1.insert(7);
         myListVector1.insert(9);
-        myListVector1.add(2);
-        myListVector1.minus(1);
-        System.out.println(myListVector1.coordinate(3));
-        System.out.println(Arrays.toString(myListVector1.coordinates()));
-        myListVector1.set(2,2);
-        myListVector1.remove(1);
+        myListVector1.insert(1, 1);
+        myListVector1.insert(3, 2);
+        myListVector1.insert(5, 1);
+        myListVector1.insert(8);
+        myListVector1.insert(3);
+        myListVector1.insert(6);
+        myListVector1.insert(9);
+        myListVector1.insert(3);
+        myListVector1.insert(3);
+        myListVector1.set(5, 1);
+        myListVector1.remove(0);
+        myListVector1.insert(2, 1);
+        System.out.println("Vector 1:\n" + myListVector1);
+        System.out.println("Add the coordinate values with 2:\n" + myListVector1.add(2));
+        System.out.println("Subtract the coordinate values with 1:\n" + myListVector1.minus(1));
+        System.out.println("The values of vector1 are taken to the power of 2 :\n" + myListVector1.pow(2));
+        System.out.println("The coordinate values of vector 1 are multiplied by 3:\n" + myListVector1.scale(3));
+        System.out.println("Standard of vector1: " + myListVector1.norm());
 
         MyListVector myListVector2 = new MyListVector();
-        myListVector2.insert(2);
+        myListVector2.insert(1);
+        myListVector2.insert(3);
+        myListVector2.insert(2, 1);
         myListVector2.insert(4);
-        myListVector2.insert(6,1);
-        myListVector2.insert(8);
-        myListVector2.insert(10);
-        myListVector1.add(2);
-        myListVector1.minus(1);
-        System.out.println(myListVector2.coordinate(3));
-        System.out.println(Arrays.toString(myListVector2.coordinates()));
-        myListVector2.set(2,3);
-        myListVector2.remove(3);
+        myListVector2.insert(5, 2);
+        myListVector2.insert(6);
+        myListVector2.insert(7);
+        myListVector2.insert(7);
+        myListVector2.insert(3, 1);
+        myListVector2.insert(9, 0);
+        myListVector2.insert(9, 0);
 
-        System.out.println(myListVector1.pow(2));
-        System.out.println("add:" + myListVector1.add(myListVector2));
-        System.out.println("minus:" + myListVector1.minus(myListVector2));
-        System.out.println("scale:" + myListVector1.scale(2));
-        System.out.println("dot: " + myListVector1.dot(myListVector2));
-        System.out.println("norm: " + myListVector1.norm());
-        double[] data ={2.0,6.0};
-        System.out.println(myListVector2.extract(data));
+        System.out.println("Vector 2:\n" + myListVector2);
 
+
+        System.out.println("add: " + myListVector1.add(myListVector2));
+        System.out.println("minus: " + myListVector1.minus(myListVector2));
+        System.out.println("dot:" + myListVector1.dot(myListVector2));
+        double[] data = {9,1};
+        System.out.println("The new vector with bounds is extracted from the current vector:\n"+myListVector2.extract(data));
     }
 
     public static void doSimpleStatic() {
         /* TODO */
-        MyVector[] myList = new MyVector[2];
-        MyListVector test = new MyListVector();
-        test.add(1);
-        test.add(3);
-        test.add(3);
-        test.add(3);
-        test.add(2);
-        myList[0] = test;
-        MyListVector test2 = new MyListVector();
-        test.add(3);
-        test2.add(1);
-        test.add(4);
-        test.add(4);
-        test.add(4);
-        myList[1] = test2;
-        BasicStatistics myTest = new BasicStatistics(myList);
-        System.out.println(myTest.normMax());
-        System.out.println(myTest.normMin());
-        System.out.println(Arrays.toString(myTest.sortNorm(true)));
-        System.out.println(Arrays.toString(myTest.sortNorm(false)));
-        System.out.println(Arrays.toString(myTest.filter(0, 10)));
-        System.out.println(Arrays.toString(myTest.rank()));
+        BasicStatistics basicStatistics = new BasicStatistics();
+        basicStatistics.vectors = basicStatistics.initVector();
+        System.out.println("Vectors");
+        basicStatistics.printVectors(basicStatistics.vectors);
+
+        System.out.println("normMax =  " + basicStatistics.normMax());
+        System.out.println("normMin =  " + basicStatistics.normMin());
+
+        System.out.println("Print normal vectors within a segment from 1 to 5:" );
+//        basicStatistics.vectors = basicStatistics.filter(1,5);
+//        basicStatistics.printVectors(basicStatistics.vectors);
     }
+    public void printVectors(MyVector[] vectors) {
+        for (MyVector myVector : vectors) {
+            System.out.println(myVector + "has norm is: " + myVector.norm());
+        }
+    }
+
+
     /**
      * Lấy giá trị chuẩn lớn nhất trong các vector.
      *
@@ -177,36 +198,43 @@ public class BasicStatistics {
      */
     public MyVector[] sortNorm(boolean order) {
         /* TODO */
+//        if (order) {
+//            for (int i = 0; i < vectors.length - 1; i++) {
+//                int minIndex = i;
+//                for (int j = i + 1; j < vectors.length; j++) {
+//                    if (vectors[minIndex].norm() > vectors[j].norm()) {
+//                        minIndex = j;
+//                    }
+//                }
+//                if (minIndex != i) {
+//                    MyVector temp = vectors[minIndex];
+//                    vectors[minIndex] = vectors[i];
+//                    vectors[i] = temp;
+//                }
+//            }
+//        } else {
+//            for (int i = 0; i < vectors.length - 1; i++) {
+//                int minIndex = i;
+//                for (int j = i + 1; j < vectors.length; j++) {
+//                    if (vectors[minIndex].norm() < vectors[j].norm()) {
+//                        minIndex = j;
+//                    }
+//                }
+//                if (minIndex != i) {
+//                    MyVector temp = vectors[minIndex];
+//                    vectors[minIndex] = vectors[i];
+//                    vectors[i] = temp;
+//                }
+//            }
+//        }
+//        return vectors;
+        MyVector[] myVectors = Arrays.copyOf(vectors, vectors.length);
+        Arrays.sort(myVectors, Comparator.comparingDouble(MyVector::norm));
         if (order) {
-            for (int i = 0; i < vectors.length - 1; i++) {
-                int minIndex = i;
-                for (int j = i + 1; j < vectors.length; j++) {
-                    if (vectors[minIndex].norm() > vectors[j].norm()) {
-                        minIndex = j;
-                    }
-                }
-                if (minIndex != i) {
-                    MyVector temp = vectors[minIndex];
-                    vectors[minIndex] = vectors[i];
-                    vectors[i] = temp;
-                }
-            }
-        } else {
-            for (int i = 0; i < vectors.length - 1; i++) {
-                int minIndex = i;
-                for (int j = i + 1; j < vectors.length; j++) {
-                    if (vectors[minIndex].norm() < vectors[j].norm()) {
-                        minIndex = j;
-                    }
-                }
-                if (minIndex != i) {
-                    MyVector temp = vectors[minIndex];
-                    vectors[minIndex] = vectors[i];
-                    vectors[i] = temp;
-                }
-            }
+            return myVectors;
         }
-        return vectors;
+        Collections.reverse(Arrays.asList(myVectors));
+        return myVectors;
     }
 
     /**
@@ -258,4 +286,41 @@ public class BasicStatistics {
 
         return result;
     }
+    private MyVector[] initVector( ) {
+        Random random = new Random();
+        MyListVector myListVector1 = new MyListVector();
+        MyListVector myListVector2 = new MyListVector();
+        MyListVector myListVector3 = new MyListVector();
+        MyListVector myListVector4 = new MyListVector();
+        MyListVector myListVector5 = new MyListVector();
+        MyListVector myListVector6 = new MyListVector();
+        MyListVector myListVector7 = new MyListVector();
+        MyListVector myListVector8 = new MyListVector();
+        MyListVector myListVector9 = new MyListVector();
+        MyListVector myListVector10 = new MyListVector();
+        MyListVector myListVector11 = new MyListVector();
+        MyListVector myListVector12 = new MyListVector();
+        for (int i = 0; i < 2; i++) {
+             myListVector1.insert(random.nextInt(5));
+             myListVector2.insert(random.nextInt(5));
+             myListVector3.insert(random.nextInt(5));
+             myListVector4.insert(random.nextInt(5));
+             myListVector5.insert(random.nextInt(5));
+             myListVector6.insert(random.nextInt(5));
+             myListVector7.insert(random.nextInt(5));
+             myListVector8.insert(random.nextInt(5));
+             myListVector9.insert(random.nextInt(5));
+             myListVector10.insert(random.nextInt(5));
+        }
+        myListVector11.insert(3);
+        myListVector11.insert(4);
+        myListVector11.insert(5);
+
+        myListVector12.insert(5);
+        myListVector12.insert(4);
+        myListVector12.insert(3);
+        return new MyVector[]{myListVector1,myListVector2, myListVector3,myListVector4,myListVector5,myListVector6,
+                myListVector7,myListVector8,myListVector9,myListVector10,myListVector11,myListVector12};
+    }
+
 }

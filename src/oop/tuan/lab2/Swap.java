@@ -62,16 +62,16 @@ public class Swap {
 //                String myString = arrayToString(arrayInteger);
 //                System.out.println("Print array to string: ");
 //                System.out.println(myString);
-//                //Test method contain
+//                //BasicStatistics method contain
 //                System.out.println(contains(arrayInteger,3));
-//                //Test method search
+//                //BasicStatistics method search
 //                System.out.println(search(arrayTest,-100));
-//                //Test method equals
+//                //BasicStatistics method equals
 //                System.out.println(equals(arrayTest,arrayInteger));
-//                //Test method swap
+//                //BasicStatistics method swap
 //                System.out.println(swap(arrayTest,arrayInteger));
 //                print(arrayTest);
 //                print(arrayInteger);
-//                //Test method reverse
+//                //BasicStatistics method reverse
 //                reverse(arrayInteger);
 //                print(arrayInteger);

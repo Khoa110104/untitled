@@ -20,7 +20,7 @@ public class MyLinkedList extends MyAbstractList {
     @Override
     public int size() {
         /* TODO */
-        return size;
+        return this.size;
     }
 
     /**
@@ -74,7 +74,7 @@ public class MyLinkedList extends MyAbstractList {
             }
             size--;
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Can't remove object at index " + index);
+            e.printStackTrace();
         }
     }
 
@@ -108,7 +108,7 @@ public class MyLinkedList extends MyAbstractList {
             }
             size++;
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Can't add " + payload + " at index " + index);
+            e.printStackTrace();
         }
     }
 
@@ -139,14 +139,14 @@ public class MyLinkedList extends MyAbstractList {
                     current = current.getNext();
                 }
             } catch (IndexOutOfBoundsException e) {
-                System.out.println("Can't get node at index " + index);
+                e.printStackTrace();
             }
             return current;
         }
 
         private void checkBoundaries ( int index, int limit){
             if (index < 0 || index > limit) {
-                throw new IndexOutOfBoundsException();
+                throw new IndexOutOfBoundsException("Error!!!");
             }
         }
     }

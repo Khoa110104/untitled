@@ -1,6 +1,8 @@
 package oop.midterm2023_1.vector;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MyArrayVector extends AbstractMyVector {
     private static final int DEFAULT_CAPACITY = 1;
@@ -15,6 +17,10 @@ public class MyArrayVector extends AbstractMyVector {
         data = new double[DEFAULT_CAPACITY];
         this.size = 0;
     }
+    public MyArrayVector(double[] data) {
+        this.data = data;
+        this.size = data.length;
+    }
 
     @Override
     public int size() {
@@ -25,14 +31,20 @@ public class MyArrayVector extends AbstractMyVector {
     @Override
     public double coordinate(int index) {
         /* TODO */
-        checkInvalidIndex(index, size);
-        return data[index];
+        try {
+            checkInvalidIndex(index, size());
+            return data[index];
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        }
+        return -1;
+
     }
 
     @Override
     public double[] coordinates() {
         /* TODO */
-        return data;
+        return Arrays.copyOf(data,size());
     }
 
     @Override
@@ -43,7 +55,7 @@ public class MyArrayVector extends AbstractMyVector {
     }
 
     /**
-     * Cộng các giá trị tọa độ với value.
+         * Cộng các giá trị tọa độ với value.
      *
      * @param value
      * @return vector hiện tại.
@@ -66,11 +78,11 @@ public class MyArrayVector extends AbstractMyVector {
      */
     public MyArrayVector add(MyArrayVector another) {
         /* TODO */
-        if (data.length != another.size()) {
-            System.out.println("Can't");
+        if (size() != another.size()) {
+            System.out.println("Can't add!!!");
             return null;
         }
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < size(); i++) {
             data[i] = data[i] + another.coordinate(i);
         }
         return this;
@@ -83,7 +95,7 @@ public class MyArrayVector extends AbstractMyVector {
      */
     public MyArrayVector minus(double value) {
         /* TODO */
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < size(); i++) {
             data[i] = data[i] - value;
         }
         return this;
@@ -109,7 +121,11 @@ public class MyArrayVector extends AbstractMyVector {
      */
     public MyArrayVector minus(MyArrayVector another) {
         /* TODO */
-        for (int i = 0; i < data.length; i++) {
+        if (size() != another.size()) {
+            System.out.println("Can't minus!!!");
+            return null;
+        }
+        for (int i = 0; i < size; i++) {
             data[i] = data[i] - another.coordinate(i);
         }
         return this;
@@ -126,7 +142,7 @@ public class MyArrayVector extends AbstractMyVector {
         /* TODO */
         double result = 0;
         if (data.length != another.size) {
-            System.out.println("Can't");
+            System.out.println("Can't dot");
             return -1;
         }
         for (int i = 0; i < data.length; i++) {
@@ -143,7 +159,7 @@ public class MyArrayVector extends AbstractMyVector {
      */
     public MyArrayVector pow(double power) {
         /* TODO */
-        for (int i = 0; i < data.length; i++) {
+        for (int i = 0; i < size(); i++) {
             data[i] = Math.pow(data[i], power);
         }
         return this;
@@ -251,16 +267,26 @@ public class MyArrayVector extends AbstractMyVector {
      * @param indices
      * @return vector mới có tọa độ được trích xuất từ vector hiện tại.
      */
-    public MyArrayVector extract(int[] indices) {
+    public MyArrayVector extract( double[] indices) {
         /* TODO */
-        MyArrayVector newVector = new MyArrayVector();
-        int index = 0;
-        for (int i = 0; i < indices.length; i++) {
-            if (binarySearch(data, indices[i]) != -1) {
-                newVector.add(indices[i]);
-            }
+        if (indices.length == 0||indices.length > size) {
+            System.out.println("Error!!!");
+            return null;
         }
-        return newVector;
+        List<Double> newList = new ArrayList<>();
+        for (int i = 0; i < coordinates().length ; i++) {
+            newList.add(coordinate(i));
+        }
+        for (double i : indices) {
+            if (!newList.contains(i)) {
+                System.out.println("Error!!!");
+                return null;
+            } else {
+                newList.remove(i);
+            }
+
+        }
+        return new MyArrayVector(indices);
     }
 
     /**
@@ -274,19 +300,4 @@ public class MyArrayVector extends AbstractMyVector {
         return this;
     }
 
-    private int binarySearch(double[] data, double key) {
-        int iL = 0;
-        int iR = data.length - 1;
-        while (iL <= iR) {
-            int iM = (iL + iR) / 2;
-            if (data[iM] == key) {
-                return iM;
-            } else if (data[iM] > key) {
-                iL = iM + 1;
-            } else if (data[iM] < key) {
-                iR = iM - 1;
-            }
-        }
-        return -1;
-    }
 }

@@ -22,7 +22,7 @@ public class MyLinkedListNode {
 
     public MyLinkedListNode getNext() {
         /* TODO */
-        return next;
+        return this.next;
     }
 
     public void setNext(MyLinkedListNode node) {

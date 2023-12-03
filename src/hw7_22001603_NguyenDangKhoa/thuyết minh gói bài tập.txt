@@ -1,0 +1,13 @@
+****************************** COMBO2 ******************************
+Bài 1:
+-Xây dựng danh sách cài đặt bằng mảng và cấu trúc liên kết như hw3
+-Viết các class test thời gian chạy của BinarySearch và LinearSearch với các danh sách
+Bài 2:
+- Xây dựng cây tìm kiếm nhị phân bằng cấu trúc liên kết
+- Có hàm in ra cây để theo dõi cách hoạt động của cây
+- Khi xóa phần tử gốc sẽ thế bằng trái cùng của cây con bên phải
+Bài 3:
+- Xử dụng bài 2 thêm các hàm như tính chiều cao của cây, xoay trái, xoay phải
+- Hàm xoay cây : Kiểm tra nếu lệch trái thì xoay phải, lệch phải thì xoay trái
+- Cây được kiểm tra lệch sau khi thêm hoặc bớt phần tử
+- Cây thu được sẽ là cây tìm kiếm nhị phân hoàn chỉnh

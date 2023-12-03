@@ -13,7 +13,9 @@ public class MyListVector extends AbstractMyVector {
         /* TODO */
         data = new ArrayList<>();
     }
-
+    public MyListVector(List<Double> data) {
+        this.data = data;
+    }
     @Override
     public int size() {
         /* TODO */
@@ -23,15 +25,17 @@ public class MyListVector extends AbstractMyVector {
     @Override
     public double coordinate(int index) {
         /* TODO */
-        checkInvalidIndex(index, size());
+        if (index < 0 || index> data.size()) {
+            return -1;
+        }
         return data.get(index);
     }
 
     @Override
     public double[] coordinates() {
         /* TODO */
-        double[] result = new double[data.size()];
-        for (int i = 0; i < data.size(); i++) {
+        double[] result = new double[size()];
+        for (int i = 0; i < size(); i++) {
             result[i] = data.get(i);
         }
         return result;
@@ -40,10 +44,11 @@ public class MyListVector extends AbstractMyVector {
     @Override
     public void set(double value, int index) {
         /* TODO */
-        if (index < 0 || index > size()) {
-            System.out.println("Can't");
+        if (index < 0|| index > size()) {
+            System.out.println("Error!!!");
+        }else  {
+            data.set(index, value);
         }
-        data.set(index, value);
     }
 
     /**
@@ -54,7 +59,7 @@ public class MyListVector extends AbstractMyVector {
      */
     public MyListVector add(double value) {
         /* TODO */
-        for (int i = 0; i < data.size(); i++) {
+        for (int i = 0; i < size(); i++) {
             double result = data.get(i) + value;
             data.set(i, result);
         }
@@ -71,11 +76,11 @@ public class MyListVector extends AbstractMyVector {
      */
     public MyListVector add(MyListVector another) {
         /* TODO */
-        if (data.size() != another.size()) {
-            System.out.println("Can't");
+        if (size() != another.size()) {
+            System.out.println("Error: Can't add!!!");
             return null;
         }
-        for (int i = 0; i < data.size(); i++) {
+        for (int i = 0; i < size(); i++) {
             double result = data.get(i) + another.coordinate(i);
             data.set(i, result);
         }
@@ -116,8 +121,8 @@ public class MyListVector extends AbstractMyVector {
      */
     public MyListVector minus(MyListVector another) {
         /* TODO */
-        if (data.size() != another.size()) {
-            System.out.println("Can't");
+        if (size() != another.size()) {
+            System.out.println("Error: Can't minus!!!");
             return null;
         }
         for (int i = 0; i < size(); i++) {
@@ -137,8 +142,8 @@ public class MyListVector extends AbstractMyVector {
     public double dot(MyListVector another) {
         /* TODO */
         double result = 0;
-        if (data.size() != another.size()) {
-            System.out.println("Can't");
+        if (this.size() != another.size()) {
+            System.out.println("Error :Can't calculate!!!");
             return -1;
         }
         for (int i = 0; i < size(); i++) {
@@ -212,8 +217,11 @@ public class MyListVector extends AbstractMyVector {
      */
     public MyListVector insert(double value, int index) {
         /* TODO */
-        checkInvalidIndex(index, size());
-        data.add(index, value);
+        if (index < 0 || index > size()) {
+            System.out.println("Can't insert value at index!!!");
+        }else {
+            data.add(index, value);
+        }
         return this;
     }
 
@@ -226,8 +234,11 @@ public class MyListVector extends AbstractMyVector {
      */
     public MyListVector remove(int index) {
         /* TODO */
-        checkInvalidIndex(index, size());
-        data.remove(index);
+        if (index < 0 || index > size()) {
+            System.out.println("Can't remove value at index!!!");
+        }else {
+            data.remove(index);
+        }
         return this;
     }
 
@@ -243,12 +254,28 @@ public class MyListVector extends AbstractMyVector {
      * @return vector mới có tọa độ được trích xuất từ vector hiện tại.
      */
     public MyListVector extract(double[] indices) {
-        MyListVector newListVector = new MyListVector();
-        for(int i=0;i<indices.length;i++){
-            if(data.contains(indices[i]) == true){
-                newListVector.add(indices[i]);
+        if (indices.length==0 ||indices.length > size()) {
+            System.out.println("Error!!!");
+            return null;
+        }
+
+        List<Double> newList = new ArrayList<>();
+        for (int i = 0; i < coordinates().length; i++) {
+            newList.add(coordinate(i));
+        }
+
+        for (int i = 0 ; i < indices.length; i++) {
+            if (!newList.contains(indices[i])) {
+                System.out.println("Error!!!");
+                return null;
+            } else {
+                newList.remove(indices[i]);
             }
         }
-        return newListVector;
+        List<Double> res = new ArrayList<>();
+        for (int i = 0; i < indices.length; i++) {
+            res.add(indices[i]);
+        }
+        return new MyListVector(res);
     }
 }

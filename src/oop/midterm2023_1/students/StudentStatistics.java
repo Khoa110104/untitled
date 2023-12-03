@@ -31,18 +31,30 @@ public class StudentStatistics {
 
          - Trả ra danh sách sinh viên mới đã được sắp thứ tự.
          */
-        for (int i = 0; i < students.size() - 1; i++) {
-            for (int j = i + 1; j < students.size(); j++) {
-                Student firstStudent = (Student) students.get(i);
-                Student secondStudent = (Student) students.get(j);
+        MyList list = null;
+
+        if (students instanceof MyArrayList) {
+            list = new MyArrayList();
+        } else {
+            list = new MyLinkedList();
+        }
+        for (MyIterator iterator = students.iterator(); iterator.hasNext(); ) {
+            list.append(iterator.next());
+        }
+        int n = list.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                Student firstStudent = (Student) list.get(i);
+                Student secondStudent = (Student) list.get(j);
                 if ((firstStudent.compareTo(secondStudent) > 0 && order) ||
                         (firstStudent.compareTo(secondStudent) < 0 && !order)) {
-                    students.set(secondStudent, i);
-                    students.set(firstStudent, j);
+                    list.set(secondStudent, i);
+                    list.set(firstStudent, j);
                 }
             }
         }
-        return students;
+        return list;
+
     }
 
     /**
@@ -63,18 +75,30 @@ public class StudentStatistics {
 
          - Trả ra danh sách các sinh viên mới đã được sắp xếp.
          */
+        MyList list;
+
+        if (students instanceof MyArrayList) {
+            list = new MyArrayList();
+        } else {
+            list = new MyLinkedList();
+        }
+        for (MyIterator iterator = students.iterator(); iterator.hasNext(); ) {
+            list.append(iterator.next());
+        }
         AverageComparison averageComparison = new AverageComparison();
-        for (int i = 0; i < students.size() - 1; i++) {
-            for (int j = i + 1; j < students.size(); j++) {
-                Student firstStudent = (Student) students.get(i);
-                Student secondStudent = (Student) students.get(j);
+        int n = list.size();
+        for (int i = 0; i < n-1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                Student firstStudent = (Student) list.get(i);
+                Student secondStudent = (Student) list.get(j);
                 if ((averageComparison.compare(firstStudent, secondStudent) > 0 && order) ||
                         (averageComparison.compare(firstStudent, secondStudent) < 0 && !order)) {
-                    students.set(secondStudent, i);
-                    students.set(firstStudent, j);
+                    list.set(secondStudent, i);
+                    list.set(firstStudent, j);
                 }
             }
         }
-        return students;
+        return list;
+
     }
 }

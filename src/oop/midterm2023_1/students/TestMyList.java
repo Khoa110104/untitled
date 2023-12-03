@@ -1,6 +1,6 @@
 package oop.midterm2023_1.students;
 
-public class TestMyList {
+public class   TestMyList {
     public static void main(String[] args) {
         /*
          TODO
@@ -11,7 +11,6 @@ public class TestMyList {
          - Nộp kết quả chạy chương trình (file text trên) cùng với các file source code.
          */
         testMyArrayList();
-        System.out.println();
         testMyLinkedList();
     }
 
@@ -27,45 +26,10 @@ public class TestMyList {
              + Sắp xếp và in ra danh sách các Student theo thứ tự tăng dần về average.
              + Sắp xếp và in ra danh sách các Student theo thứ tự giảm dần về average.
          */
-        System.out.println("Test ArrayList");
+        System.out.println("=================BasicStatistics ArrayList=================");
         MyList myList = new MyArrayList();
-        initStudents(myList);
-        sortAndPrint(myList);
+        initAndSort(myList);
     }
-
-    private static void initStudents(MyList myList) {
-        myList.insert(new Student("A", "Nguyen", 10), 0);
-        myList.append(new Student("B", "Pham", 9));
-        myList.insert(new Student("N", "Le", 9.5), 1);
-        myList.append(new Student("H", "Hoang", 9));
-        myList.insert(new Student("H", "Pham", 8), 1);
-        myList.append(new Student("D", "Nguyen", 7.5));
-        myList.insert(new Student("A", "Luong", 6), 1);
-        myList.append(new Student("D", "Bui", 7));
-        myList.insert(new Student("A", "Vu", 7.5), 1);
-        myList.append(new Student("P", "Nguyen", 9.5));
-    }
-
-    private static void sortAndPrint(MyList myList) {
-        StudentStatistics studentStatistics = new StudentStatistics(myList);
-
-        System.out.println("Sort by fullname asc");
-        studentStatistics.sortByFullname(true);
-        testIterator(myList);
-
-        System.out.println("Sort by fullname desc");
-        studentStatistics.sortByFullname(false);
-        testIterator(myList);
-
-        System.out.println("Sort by average desc");
-        studentStatistics.sortByAverage(false);
-        testIterator(myList);
-
-        System.out.println("Sort by average asc");
-        studentStatistics.sortByAverage(true);
-        testIterator(myList);
-    }
-
     public static void testMyLinkedList() {
         /*
          TODO
@@ -78,18 +42,52 @@ public class TestMyList {
              + Sắp xếp và in ra danh sách các Student theo thứ tự tăng dần về average.
              + Sắp xếp và in ra danh sách các Student theo thứ tự giảm dần về average.
          */
-        System.out.println("Test LinkedList");
+        System.out.println("=================BasicStatistics LinkedList=================");
         MyList myList = new MyLinkedList();
-        initStudents(myList);
-        sortAndPrint(myList);
+        initAndSort(myList);
+        System.out.println("=================End=================");
+    }
+
+    private static void initAndSort(MyList myList) {
+        myList.append(new Student("Khoa", "Nguyen", 7));
+        myList.append(new Student("Khoi", "Nguyen", 8));
+        myList.insert(new Student("Khiem", "Hoang", 9), 1);
+        myList.insert(new Student("Tuan", "Pham", 9),2 );
+        myList.append(new Student("Khue", "Nguyen", 10));
+        myList.append(new Student("Dung", "Nguyen", 7.5));
+        myList.insert(new Student("Nam", "Truong", 7), 2);
+        myList.append(new Student("Dang", "Le", 5));
+        myList.insert(new Student("Anh", "Vu", 4), 1);
+        myList.append(new Student("Phuong", "Nguyen", 7));
+        myList.append(new Student("Nam", "Vu", 2));
+        myList.append(new Student("Hieu", "Vu", 2));
+        myList.set(new Student("Khoa","Vu", 10), 2);
+        myList.remove(5);
+
+        StudentStatistics studentStatistics = new StudentStatistics(myList);
+
+        System.out.println("\t\t*** Sort by fullname increase ***");
+        myList = studentStatistics.sortByFullname(true);
+        testIterator(myList);
+        System.out.println();
+
+        System.out.println("\t\t*** Sort by fullname reduce ***");
+        myList = studentStatistics.sortByFullname(false);
+        testIterator(myList);
+        System.out.println();
+
+        System.out.println("\t\t*** Sort by average increase ***");
+        myList = studentStatistics.sortByAverage(true);
+        testIterator(myList);
+        System.out.println();
+
+        System.out.println("\t\t*** Sort by average reduce ***");
+        myList = studentStatistics.sortByAverage(false);
+        testIterator(myList);
+        System.out.println();
     }
 
     public static void testIterator(MyList myList) {
-        /*
-         TODO
-
-         Sử dụng iterator duyệt qua tất cả các phần tử trong danh sách myList và in ra thông tin về phần tử đó.
-         */
         for (MyIterator iterator = myList.iterator(); iterator.hasNext(); ) {
             System.out.println(iterator.next());
         }

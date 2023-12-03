@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TestMain {
     public static void main(String[] args) {
-        //Test constructor and toString()
+        //BasicStatistics constructor and toString()
         Scanner in = new Scanner(System.in);
         System.out.print("Enter complex number 1 (real and imaginary part): ");
         double real1 = in.nextDouble();
@@ -17,14 +17,14 @@ public class TestMain {
         MyComplex myComplex2 = new MyComplex(real2, imag2);
         System.out.println("Number 1 is : (" + myComplex1 + ")");
 
-        //Test isReal()
+        //BasicStatistics isReal()
         if (myComplex1.isReal()) {
             System.out.println("(" + myComplex1 + ") is a pure real number");
         } else {
             System.out.println("(" + myComplex1 + ") is NOT a pure real number");
         }
 
-        //Test isImaginary()
+        //BasicStatistics isImaginary()
         if (myComplex1.isImaginary()) {
             System.out.println("(" + myComplex1 + ") is a pure imaginary number");
         } else {
@@ -46,52 +46,52 @@ public class TestMain {
         }
         System.out.println();
 
-        //Test equals()
+        //BasicStatistics equals()
         if (myComplex1.equals(myComplex2)) {
             System.out.println("(" + myComplex1 + ") is equal to (" + myComplex2 + ")");
         } else {
             System.out.println("(" + myComplex1 + ") is NOT equal to (" + myComplex2 + ")");
         }
 
-        //Test addNew()
+        //BasicStatistics addNew()
         System.out.println("(" + myComplex1 + ") + " +
                 "(" + myComplex2 + ") = (" +
                 myComplex1.addNew(myComplex2) + ")");
 
-        //Test magnitude
+        //BasicStatistics magnitude
         System.out.println("The magnitude of the complex number 1 is: " + myComplex1.magnitude());
 
-        //Test argument()
+        //BasicStatistics argument()
         System.out.println("The argument of the complex number 1 is: " + myComplex1.argument());
 
-        //Test subtractNew()
+        //BasicStatistics subtractNew()
         System.out.println("(" + myComplex1 + ") - " +
                 "(" + myComplex2 + ") = (" +
                 myComplex1.subtractNew(myComplex2) + ")");
 
-        //Test multiply()
+        //BasicStatistics multiply()
         System.out.print("(" + myComplex1 + ")");
         System.out.println(" * " +
                 "(" + myComplex2 + ") = (" +
                 myComplex1.multiply(myComplex2) + ")");
 
-        //Test divide()
+        //BasicStatistics divide()
         System.out.print("(" + myComplex1 + ")");
         System.out.println(" / " +
                 "(" + myComplex2 + ") = (" +
                 myComplex1.divide(myComplex2) + ")");
 
-        //Test conjugate()
+        //BasicStatistics conjugate()
         System.out.println("Conjugate number of the complex number 2 is: "
                 + myComplex2.conjugate());
 
-        //Test add()
+        //BasicStatistics add()
         System.out.print("(" + myComplex1 + ")");
         System.out.println(" + " +
                 "(" + myComplex2 + ") = (" +
                 myComplex1.add(myComplex2) + ")");
 
-        //Test subtract()
+        //BasicStatistics subtract()
         System.out.print("(" + myComplex1 + ")");
         System.out.println(" - " +
                 "(" + myComplex2 + ") = (" +

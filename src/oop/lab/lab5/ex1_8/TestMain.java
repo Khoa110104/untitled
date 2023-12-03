@@ -2,7 +2,7 @@ package oop.lab.lab5.ex1_8;
 
 public class TestMain {
     public static void main(String[] args) {
-        //Test constructor and toString()
+        //BasicStatistics constructor and toString()
         int x = 4;
         double[] coeffs = {1.1, 2.2, 3.3};
         MyPolynomial myPolynomial1 = new MyPolynomial(coeffs);
@@ -10,13 +10,13 @@ public class TestMain {
         System.out.println(myPolynomial1);
         System.out.println(myPolynomial2);
 
-        //Test evaluate()
+        //BasicStatistics evaluate()
         System.out.println(myPolynomial1.evaluate(x));
 
-        //Test add()
+        //BasicStatistics add()
         System.out.println(myPolynomial1.add(myPolynomial2));
 
-        //Test multiply
+        //BasicStatistics multiply
         System.out.println(myPolynomial1.multiply(myPolynomial2));
     }
 }
